@@ -88,23 +88,18 @@
             },
             submitLogin(){
                 var {pass,username} = this.ruleForm
-                this.$axios({
-                    method:'post',
-                    url:'http://localhost:8081/api/login',
-                    data:{
-                        name:username,
-                        password:pass
-                    }
-                }).then((res)=>{                   
-                    if(res.data.statusCode==200) {
-                        alert(res.data.data);
-                        localStorage.setItem('token',res.data.token); //用户访问页面的钥匙
-                        
+                this.$axios.post(this.$api.basic.login,{                
+                    name:username,
+                    password:pass                 
+                }).then((res)=>{               
+                    if(res.statusCode==200) {                   
+                        localStorage.setItem('token',res.token); //用户访问页面的钥匙
+                        localStorage.setItem('userRole',res.userRole);                         
                         this.$router.push({
                             path:'/home'
                         });
                     } else {
-                        alert(res.data.data);
+                        alert(res.data);
                     }
                 
                 });

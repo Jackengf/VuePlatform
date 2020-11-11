@@ -51,6 +51,15 @@ app.post('/api/login',(req,res)=>{
         res.json({
             statusCode:200,
             token:'1234567890',
+            userRole:'guest',
+            data:'登陆成功！'
+            
+        })
+    } else if(queryres.name=='song' && queryres.password=='123456'){
+        res.json({
+            statusCode:200,
+            token:'1234567890',
+            userRole:'admin',
             data:'登陆成功！'
             
         })
