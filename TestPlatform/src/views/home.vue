@@ -32,7 +32,7 @@
             }
         },
         mounted(){
-            this.getInfo();
+            //this.getInfo();
         }
     }
 </script>

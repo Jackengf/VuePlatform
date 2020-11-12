@@ -63,8 +63,8 @@
                     }
                 }
             },
-            mounted(){
-                EventEmitter.$on('allOption',(res)=>{              
+            mounted(){             
+                EventEmitter.$on('allOption',(res)=>{                          
                     this.getMyRoutes = res;        
                 })
             }
